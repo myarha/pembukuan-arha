@@ -673,7 +673,7 @@ export default function App() {
                   setLoginUser(e.target.value);
                   setLoginError('');
                 }}
-                className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-100 focus:bg-white focus:ring-2 focus:ring-indigo-600/20 focus:border-indigo-600 outline-none transition-all text-sm font-medium text-slate-700"
+                className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-100 focus:bg-white focus:ring-2 focus:ring-slate-200 focus:border-slate-300 outline-none transition-all text-sm font-medium text-slate-700"
                 placeholder="admin"
               />
             </div>
@@ -688,7 +688,7 @@ export default function App() {
                     setLoginPass(e.target.value);
                     setLoginError('');
                   }}
-                  className="w-full pl-4 pr-12 py-3 rounded-xl bg-slate-50 border border-slate-100 focus:bg-white focus:ring-2 focus:ring-indigo-600/20 focus:border-indigo-600 outline-none transition-all text-sm font-medium text-slate-700"
+                  className="w-full pl-4 pr-12 py-3 rounded-xl bg-slate-50 border border-slate-100 focus:bg-white focus:ring-2 focus:ring-slate-200 focus:border-slate-300 outline-none transition-all text-sm font-medium text-slate-700"
                   placeholder="••••••••"
                 />
                 <button
@@ -869,7 +869,7 @@ export default function App() {
                   </button>
                 ))}
                 <div className="col-span-3 border-t border-slate-100 my-2"></div>
-                {Array.from({ length: 10 }, (_, i) => 2020 + i).map(year => (
+                {Array.from({ length: 5 }, (_, i) => 2026 + i).map(year => (
                   <button
                     key={year}
                     onClick={() => {
@@ -974,7 +974,7 @@ export default function App() {
                     exit={{ opacity: 0, y: -10 }}
                     className="absolute top-full left-0 right-0 mt-2 bg-white border border-slate-100 shadow-xl rounded-2xl z-50 overflow-hidden max-h-60 overflow-y-auto custom-scrollbar"
                   >
-                    {Array.from({ length: 5 }, (_, i) => new Date().getFullYear() - 2 + i).map(year => (
+                    {Array.from({ length: 5 }, (_, i) => 2026 + i).map(year => (
                       <button
                         key={year}
                         onClick={() => {
@@ -1291,7 +1291,7 @@ export default function App() {
                     value={expenseName}
                     onChange={(e) => setExpenseName(e.target.value)}
                     placeholder="Contoh: Makan Siang"
-                    className="w-full bg-slate-50 border-none rounded-2xl p-4 text-slate-800 font-semibold focus:ring-2 focus:ring-indigo-500 transition-all placeholder:text-slate-300"
+                    className="w-full bg-slate-50 border-none rounded-2xl p-4 text-slate-800 font-semibold focus:ring-2 focus:ring-slate-200 transition-all placeholder:text-slate-300"
                   />
                 </div>
 
@@ -1302,7 +1302,7 @@ export default function App() {
                     value={expenseAmount}
                     onChange={(e) => setExpenseAmount(e.target.value)}
                     placeholder="0"
-                    className="w-full bg-slate-50 border-none rounded-2xl p-4 text-slate-800 font-bold text-2xl focus:ring-2 focus:ring-indigo-500 transition-all placeholder:text-slate-300"
+                    className="w-full bg-slate-50 border-none rounded-2xl p-4 text-slate-800 font-bold text-2xl focus:ring-2 focus:ring-slate-200 transition-all placeholder:text-slate-300"
                   />
                 </div>
 
@@ -1362,7 +1362,7 @@ export default function App() {
                         setProcessForm({...processForm, tanggalProses: e.target.value});
                         if (processFormErrors.tanggalProses) setProcessFormErrors({...processFormErrors, tanggalProses: ''});
                       }}
-                      className={`w-full bg-slate-50 border border-transparent rounded-2xl p-4 pr-12 text-slate-800 font-semibold focus:bg-white focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 transition-all appearance-none [&::-webkit-calendar-picker-indicator]:opacity-0 [&::-webkit-calendar-picker-indicator]:absolute [&::-webkit-calendar-picker-indicator]:inset-0 [&::-webkit-calendar-picker-indicator]:w-full [&::-webkit-calendar-picker-indicator]:h-full [&::-webkit-calendar-picker-indicator]:cursor-pointer ${processFormErrors.tanggalProses ? 'ring-2 ring-rose-500' : ''}`}
+                      className={`w-full bg-slate-50 border border-transparent rounded-2xl p-4 pr-12 text-slate-800 font-semibold focus:bg-white focus:ring-2 focus:ring-slate-200 focus:border-slate-300 transition-all appearance-none [&::-webkit-calendar-picker-indicator]:opacity-0 [&::-webkit-calendar-picker-indicator]:absolute [&::-webkit-calendar-picker-indicator]:inset-0 [&::-webkit-calendar-picker-indicator]:w-full [&::-webkit-calendar-picker-indicator]:h-full [&::-webkit-calendar-picker-indicator]:cursor-pointer ${processFormErrors.tanggalProses ? 'ring-2 ring-rose-500' : ''}`}
                     />
                     <div className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none">
                       <ChevronDown size={16} className="text-slate-400" />
@@ -1381,7 +1381,7 @@ export default function App() {
                       if (processFormErrors.namaWajibPajak) setProcessFormErrors({...processFormErrors, namaWajibPajak: ''});
                     }}
                     placeholder="Masukkan nama"
-                    className={`w-full bg-slate-50 border-none rounded-2xl p-4 text-slate-800 font-semibold focus:ring-2 focus:ring-indigo-500 transition-all placeholder:text-slate-300 ${processFormErrors.namaWajibPajak ? 'ring-2 ring-rose-500' : ''}`}
+                    className={`w-full bg-slate-50 border-none rounded-2xl p-4 text-slate-800 font-semibold focus:ring-2 focus:ring-slate-200 transition-all placeholder:text-slate-300 ${processFormErrors.namaWajibPajak ? 'ring-2 ring-rose-500' : ''}`}
                   />
                   {processFormErrors.namaWajibPajak && <p className="text-rose-500 text-xs font-medium ml-1">{processFormErrors.namaWajibPajak}</p>}
                 </div>
@@ -1396,7 +1396,7 @@ export default function App() {
                       if (processFormErrors.nopol) setProcessFormErrors({...processFormErrors, nopol: ''});
                     }}
                     placeholder="Contoh: DK1234UAD"
-                    className={`w-full bg-slate-50 border-none rounded-2xl p-4 text-slate-800 font-semibold focus:ring-2 focus:ring-indigo-500 transition-all placeholder:text-slate-300 ${processFormErrors.nopol ? 'ring-2 ring-rose-500' : ''}`}
+                    className={`w-full bg-slate-50 border-none rounded-2xl p-4 text-slate-800 font-semibold focus:ring-2 focus:ring-slate-200 transition-all placeholder:text-slate-300 ${processFormErrors.nopol ? 'ring-2 ring-rose-500' : ''}`}
                   />
                   {processFormErrors.nopol && <p className="text-rose-500 text-xs font-medium ml-1">{processFormErrors.nopol}</p>}
                 </div>
@@ -1412,7 +1412,7 @@ export default function App() {
                         if (processFormErrors.biayaAwal) setProcessFormErrors({...processFormErrors, biayaAwal: ''});
                       }}
                       placeholder="0"
-                      className={`w-full bg-slate-50 border-none rounded-2xl p-4 text-slate-800 font-bold focus:ring-2 focus:ring-indigo-500 transition-all placeholder:text-slate-300 ${processFormErrors.biayaAwal ? 'ring-2 ring-rose-500' : ''}`}
+                      className={`w-full bg-slate-50 border-none rounded-2xl p-4 text-slate-800 font-bold focus:ring-2 focus:ring-slate-200 transition-all placeholder:text-slate-300 ${processFormErrors.biayaAwal ? 'ring-2 ring-rose-500' : ''}`}
                     />
                     {processFormErrors.biayaAwal && <p className="text-rose-500 text-xs font-medium ml-1">{processFormErrors.biayaAwal}</p>}
                   </div>
@@ -1427,7 +1427,7 @@ export default function App() {
                         if (processFormErrors.biayaProses) setProcessFormErrors({...processFormErrors, biayaProses: ''});
                       }}
                       placeholder="0"
-                      className={`w-full bg-slate-50 border-none rounded-2xl p-4 text-slate-800 font-bold focus:ring-2 focus:ring-indigo-500 transition-all placeholder:text-slate-300 ${processFormErrors.biayaProses ? 'ring-2 ring-rose-500' : ''}`}
+                      className={`w-full bg-slate-50 border-none rounded-2xl p-4 text-slate-800 font-bold focus:ring-2 focus:ring-slate-200 transition-all placeholder:text-slate-300 ${processFormErrors.biayaProses ? 'ring-2 ring-rose-500' : ''}`}
                     />
                     {processFormErrors.biayaProses && <p className="text-rose-500 text-xs font-medium ml-1">{processFormErrors.biayaProses}</p>}
                   </div>
@@ -1445,7 +1445,7 @@ export default function App() {
                   <div className="relative">
                     <button 
                       onClick={() => setIsKeteranganDropdownOpen(!isKeteranganDropdownOpen)}
-                      className="w-full bg-slate-50 border border-transparent rounded-2xl p-4 pr-12 text-slate-800 font-semibold focus:bg-white focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 transition-all text-left flex items-center justify-between"
+                      className="w-full bg-slate-50 border border-transparent rounded-2xl p-4 pr-12 text-slate-800 font-semibold focus:bg-white focus:ring-2 focus:ring-slate-200 focus:border-slate-300 transition-all text-left flex items-center justify-between"
                     >
                       <span>{processForm.keterangan}</span>
                       <div className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none">
@@ -1491,7 +1491,7 @@ export default function App() {
                     value={processForm.catatan}
                     onChange={(e) => setProcessForm({...processForm, catatan: e.target.value})}
                     placeholder="Opsional"
-                    className="w-full bg-slate-50 border-none rounded-2xl p-4 text-slate-800 font-semibold focus:ring-2 focus:ring-indigo-500 transition-all placeholder:text-slate-300"
+                    className="w-full bg-slate-50 border-none rounded-2xl p-4 text-slate-800 font-semibold focus:ring-2 focus:ring-slate-200 transition-all placeholder:text-slate-300"
                   />
                 </div>
 
@@ -1505,7 +1505,7 @@ export default function App() {
                       if (processFormErrors.diprosesOleh) setProcessFormErrors({...processFormErrors, diprosesOleh: ''});
                     }}
                     placeholder="Nama pemroses"
-                    className={`w-full bg-slate-50 border-none rounded-2xl p-4 text-slate-800 font-semibold focus:ring-2 focus:ring-indigo-500 transition-all placeholder:text-slate-300 ${processFormErrors.diprosesOleh ? 'ring-2 ring-rose-500' : ''}`}
+                    className={`w-full bg-slate-50 border-none rounded-2xl p-4 text-slate-800 font-semibold focus:ring-2 focus:ring-slate-200 transition-all placeholder:text-slate-300 ${processFormErrors.diprosesOleh ? 'ring-2 ring-rose-500' : ''}`}
                   />
                   {processFormErrors.diprosesOleh && <p className="text-rose-500 text-xs font-medium ml-1">{processFormErrors.diprosesOleh}</p>}
                 </div>
