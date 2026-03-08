@@ -27,7 +27,8 @@ import {
   Eye,
   EyeOff,
   AlertCircle,
-  Search
+  Search,
+  CheckCircle
 } from 'lucide-react';
 
 interface ExpenseRecord {
@@ -613,16 +614,12 @@ export default function App() {
                 exit={{ opacity: 0, y: -20, scale: 0.9 }}
                 className={`px-4 py-3 rounded-2xl shadow-lg border flex items-center gap-3 ${
                   notification.type === 'success' 
-                    ? 'bg-emerald-50 border-emerald-100 text-emerald-800' 
+                    ? 'bg-slate-800 border-slate-700 text-white' 
                     : 'bg-rose-50 border-rose-100 text-rose-800'
                 }`}
               >
                 {notification.type === 'success' ? (
-                  <div className="w-6 h-6 bg-emerald-100 rounded-full flex items-center justify-center shrink-0">
-                    <svg className="w-3.5 h-3.5 text-emerald-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                    </svg>
-                  </div>
+                  <CheckCircle className="text-emerald-500 shrink-0" size={24} />
                 ) : (
                   <div className="w-6 h-6 bg-rose-100 rounded-full flex items-center justify-center shrink-0">
                     <AlertCircle size={14} className="text-rose-600" strokeWidth={3} />
@@ -727,16 +724,12 @@ export default function App() {
               exit={{ opacity: 0, y: -20, scale: 0.9 }}
               className={`px-4 py-3 rounded-2xl shadow-lg border flex items-center gap-3 ${
                 notification.type === 'success' 
-                  ? 'bg-emerald-50 border-emerald-100 text-emerald-800' 
+                  ? 'bg-slate-800 border-slate-700 text-white' 
                   : 'bg-rose-50 border-rose-100 text-rose-800'
               }`}
             >
               {notification.type === 'success' ? (
-                <div className="w-6 h-6 bg-emerald-100 rounded-full flex items-center justify-center shrink-0">
-                  <svg className="w-3.5 h-3.5 text-emerald-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                  </svg>
-                </div>
+                <CheckCircle className="text-emerald-500 shrink-0" size={24} />
               ) : (
                 <div className="w-6 h-6 bg-rose-100 rounded-full flex items-center justify-center shrink-0">
                   <AlertCircle size={14} className="text-rose-600" strokeWidth={3} />
