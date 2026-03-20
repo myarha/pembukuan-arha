@@ -997,7 +997,7 @@ export default function App() {
           </button>
           <button 
             onClick={openProcessInput}
-            className="p-2.5 rounded-2xl bg-indigo-600 text-white border border-indigo-600 hover:bg-indigo-700 transition-colors shadow-sm flex items-center justify-center active:scale-95"
+            className={`p-2.5 rounded-2xl transition-colors shadow-sm border ${isProcessInputOpen ? 'bg-indigo-600 text-white border-indigo-600' : 'bg-white text-slate-600 border-slate-200 hover:bg-slate-50'}`}
           >
             <Plus size={18} />
           </button>
@@ -1012,7 +1012,7 @@ export default function App() {
             exit={{ opacity: 0, height: 0 }}
             className="overflow-hidden"
           >
-            <div className="relative pt-1 pb-1 px-2">
+            <div className="relative pt-1 pb-1">
               <div className="relative flex items-center">
                 <div className="absolute left-3 w-8 h-8 bg-indigo-50 rounded-xl flex items-center justify-center text-indigo-500 pointer-events-none">
                   <Search size={16} strokeWidth={2.5} />
