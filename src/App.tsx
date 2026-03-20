@@ -587,7 +587,7 @@ export default function App() {
           <span className="text-sm font-bold">{day}</span>
           {dayTotal > 0 && (
             <span className={`text-[8px] font-bold mt-0.5 truncate max-w-full px-1 ${isSelected ? 'text-indigo-100' : 'text-rose-500'}`}>
-              {dayTotal >= 1000000 ? `${(dayTotal/1000000).toFixed(1)}M` : dayTotal >= 1000 ? `${(dayTotal/1000).toFixed(0)}k` : dayTotal}
+              {dayTotal >= 1000000 ? `${(dayTotal/1000000).toFixed(1)}jt` : dayTotal >= 1000 ? `${(dayTotal/1000).toFixed(0)}rb` : dayTotal}
             </span>
           )}
           {isToday && !isSelected && dayTotal === 0 && (
@@ -742,17 +742,17 @@ export default function App() {
       </div>
 
       {/* Header */}
-      <header className="p-4 pt-8 flex justify-between items-center bg-white border-b border-slate-100 shrink-0 z-10">
+      <header className="px-4 pt-8 pb-4 flex justify-between items-center bg-white border-b border-slate-100 shrink-0 z-10">
         <div>
           <h1 className="text-xl font-display font-bold text-slate-900">Pembukuan Arha</h1>
           <p className="text-slate-500 text-xs font-medium">Catat pembukuanmu hari ini</p>
         </div>
-        <div className="flex gap-2">
+        <div className="flex gap-3">
           <button 
             onClick={fetchRecords}
             disabled={isLoading}
             className="p-2 rounded-full bg-slate-100 text-slate-600 hover:bg-slate-200 transition-colors disabled:opacity-50"
-            title="Refresh Data"
+            title="Segarkan Data"
           >
             <RefreshCw size={20} className={isLoading ? 'animate-spin' : ''} />
           </button>
@@ -798,7 +798,7 @@ export default function App() {
         >
           {/* Page 1: Calendar */}
           <div className="w-1/2 h-full flex flex-col">
-            <div className="flex-1 overflow-y-auto p-4 space-y-6 custom-scrollbar">
+            <div className="flex-1 overflow-y-auto px-4 py-4 space-y-6 custom-scrollbar">
               {dbError && (
                 <div className="bg-rose-50 border border-rose-100 rounded-2xl p-4 text-rose-600 text-xs font-medium flex items-start gap-3 shrink-0">
                   <div className="mt-0.5">⚠️</div>
@@ -817,7 +817,7 @@ export default function App() {
                   <motion.div 
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
-                    className="bg-white rounded-[32px] p-4 shadow-sm border border-slate-100 shrink-0"
+                    className="bg-white rounded-[32px] p-5 shadow-sm border border-slate-100 shrink-0"
                   >
           {/* Month/Year Picker Header */}
           <div className="flex justify-between items-center mb-4">
@@ -830,7 +830,7 @@ export default function App() {
               </h2>
               <ChevronDown size={16} className={`text-slate-400 transition-transform ${isPickerOpen ? 'rotate-180' : ''}`} />
             </button>
-            <div className="flex gap-1">
+            <div className="flex gap-2">
               <button onClick={prevMonth} className="p-2 rounded-xl hover:bg-slate-50 text-slate-400 hover:text-indigo-600 transition-colors">
                 <ChevronLeft size={20} />
               </button>
@@ -903,16 +903,16 @@ export default function App() {
 
 {/* Page 2: List */}
   <div className="w-1/2 h-full flex flex-col">
-    <div className="p-4 pb-2 shrink-0 bg-slate-50 z-10 space-y-3">
+    <div className="px-4 py-4 pb-2 shrink-0 bg-slate-50 z-10 space-y-3">
       <div className="flex items-center justify-between gap-2">
         <div className="flex-1 flex gap-2">
-          <div className="relative flex-1">
+          <div className="relative flex-1 min-w-0">
             <button
               onClick={() => setIsMonthDropdownOpen(!isMonthDropdownOpen)}
-              className="w-full bg-white border border-slate-200 pl-4 pr-10 py-2.5 rounded-2xl text-sm font-bold text-slate-700 focus:outline-none shadow-sm flex items-center justify-between text-left"
+              className="w-full bg-white border border-slate-200 pl-3 pr-8 py-2.5 rounded-2xl text-sm font-bold text-slate-700 focus:outline-none shadow-sm flex items-center justify-between text-left"
             >
               <span className="truncate">{monthNames[listDate.getMonth()]}</span>
-              <div className="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none">
+              <div className="absolute right-2.5 top-1/2 -translate-y-1/2 pointer-events-none">
                 <ChevronDown size={14} className="text-slate-400" />
               </div>
             </button>
@@ -946,13 +946,13 @@ export default function App() {
               )}
             </AnimatePresence>
           </div>
-          <div className="relative w-[100px]">
+          <div className="relative w-[80px] shrink-0">
             <button
               onClick={() => setIsYearDropdownOpen(!isYearDropdownOpen)}
-              className="w-full bg-white border border-slate-200 pl-4 pr-10 py-2.5 rounded-2xl text-sm font-bold text-slate-700 focus:outline-none shadow-sm flex items-center justify-between text-left"
+              className="w-full bg-white border border-slate-200 pl-3 pr-8 py-2.5 rounded-2xl text-sm font-bold text-slate-700 focus:outline-none shadow-sm flex items-center justify-between text-left"
             >
               <span>{listDate.getFullYear()}</span>
-              <div className="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none">
+              <div className="absolute right-2.5 top-1/2 -translate-y-1/2 pointer-events-none">
                 <ChevronDown size={14} className="text-slate-400" />
               </div>
             </button>
@@ -1012,7 +1012,7 @@ export default function App() {
             exit={{ opacity: 0, height: 0 }}
             className="overflow-hidden"
           >
-            <div className="relative pt-1 pb-1 px-0.5">
+            <div className="relative pt-1 pb-1 px-2">
               <div className="relative flex items-center">
                 <div className="absolute left-3 w-8 h-8 bg-indigo-50 rounded-xl flex items-center justify-center text-indigo-500 pointer-events-none">
                   <Search size={16} strokeWidth={2.5} />
@@ -1040,7 +1040,7 @@ export default function App() {
       </AnimatePresence>
     </div>
     
-    <div className="flex-1 overflow-y-auto p-4 pt-2 space-y-4 custom-scrollbar">
+    <div className="flex-1 overflow-y-auto px-4 pt-2 space-y-4 custom-scrollbar">
       {isLoading ? (
         <div className="flex-1 flex flex-col items-center justify-center py-20">
           <Loader2 className="w-10 h-10 text-indigo-600 animate-spin mb-4" />
@@ -1104,16 +1104,16 @@ export default function App() {
               </div>
             </div>
             
-            <div className="flex py-3 border-y border-slate-50">
-              <div className="flex-1 min-w-0 border-r border-slate-100 pr-2">
+            <div className="grid grid-cols-3 py-3 border-y border-slate-50">
+              <div className="min-w-0 border-r border-slate-100 pr-2">
                 <p className="text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-1 truncate">Biaya Awal</p>
                 <p className="text-xs font-bold text-slate-700 truncate" title={`Rp ${record.biayaAwal.toLocaleString('id-ID')}`}>Rp {record.biayaAwal.toLocaleString('id-ID')}</p>
               </div>
-              <div className="flex-1 min-w-0 text-center border-r border-slate-100 px-2">
+              <div className="min-w-0 text-center border-r border-slate-100 px-2">
                 <p className="text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-1 truncate">Biaya Proses</p>
                 <p className="text-xs font-bold text-rose-600 truncate" title={`Rp ${record.biayaProses.toLocaleString('id-ID')}`}>Rp {record.biayaProses.toLocaleString('id-ID')}</p>
               </div>
-              <div className="flex-1 min-w-0 text-right pl-2">
+              <div className="min-w-0 text-right pl-2">
                 <p className="text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-1 truncate">Sisa Jasa</p>
                 <p className="text-xs font-bold text-emerald-600 truncate" title={`Rp ${record.sisaJasa.toLocaleString('id-ID')}`}>Rp {record.sisaJasa.toLocaleString('id-ID')}</p>
               </div>
