@@ -561,7 +561,7 @@ export default function App() {
     const calendarDays = [];
 
     for (let i = 0; i < startDay; i++) {
-      calendarDays.push(<div key={`empty-${i}`} className="h-14 w-full"></div>);
+      calendarDays.push(<div key={`empty-${i}`} className="h-12 w-full"></div>);
     }
 
     for (let day = 1; day <= totalDays; day++) {
@@ -579,7 +579,7 @@ export default function App() {
             setSelectedDate(dateObj);
             setIsDetailOpen(true);
           }}
-          className={`h-14 w-full flex flex-col items-center justify-center rounded-2xl transition-all relative
+          className={`h-12 w-full flex flex-col items-center justify-center rounded-2xl transition-all relative
             ${isSelected ? 'bg-indigo-600 text-white shadow-lg shadow-indigo-200' : 'text-slate-700 hover:bg-slate-100'}
             ${isToday && !isSelected ? 'text-indigo-600 border border-indigo-100' : ''}
           `}
@@ -798,7 +798,7 @@ export default function App() {
         >
           {/* Page 1: Calendar */}
           <div className="w-1/2 h-full flex flex-col">
-            <div className="flex-1 overflow-y-auto p-6 space-y-6 custom-scrollbar">
+            <div className="flex-1 overflow-y-auto p-4 space-y-6 custom-scrollbar">
               {dbError && (
                 <div className="bg-rose-50 border border-rose-100 rounded-2xl p-4 text-rose-600 text-xs font-medium flex items-start gap-3 shrink-0">
                   <div className="mt-0.5">⚠️</div>
@@ -817,10 +817,10 @@ export default function App() {
                   <motion.div 
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
-                    className="bg-white rounded-[32px] p-6 shadow-sm border border-slate-100 shrink-0"
+                    className="bg-white rounded-[32px] p-4 shadow-sm border border-slate-100 shrink-0"
                   >
           {/* Month/Year Picker Header */}
-          <div className="flex justify-between items-center mb-8">
+          <div className="flex justify-between items-center mb-4">
             <button 
               onClick={() => setIsPickerOpen(!isPickerOpen)}
               className="flex items-center gap-2 hover:bg-slate-50 p-2 rounded-xl transition-colors"
@@ -882,7 +882,7 @@ export default function App() {
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
               >
-                <div className="grid grid-cols-7 mb-4">
+                <div className="grid grid-cols-7 mb-2">
                   {days.map(day => (
                     <div key={day} className="text-center text-[10px] font-bold uppercase tracking-widest text-slate-400">
                       {day}
@@ -903,7 +903,7 @@ export default function App() {
 
 {/* Page 2: List */}
   <div className="w-1/2 h-full flex flex-col">
-    <div className="p-6 pb-2 shrink-0 bg-slate-50 z-10 space-y-3">
+    <div className="p-4 pb-2 shrink-0 bg-slate-50 z-10 space-y-3">
       <div className="flex items-center justify-between gap-2">
         <div className="flex-1 flex gap-2">
           <div className="relative flex-1">
@@ -1040,7 +1040,7 @@ export default function App() {
       </AnimatePresence>
     </div>
     
-    <div className="flex-1 overflow-y-auto p-6 pt-2 space-y-4 custom-scrollbar">
+    <div className="flex-1 overflow-y-auto p-4 pt-2 space-y-4 custom-scrollbar">
       {isLoading ? (
         <div className="flex-1 flex flex-col items-center justify-center py-20">
           <Loader2 className="w-10 h-10 text-indigo-600 animate-spin mb-4" />
@@ -1062,7 +1062,7 @@ export default function App() {
             key={record.id}
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
-            className="bg-white p-5 rounded-3xl border border-slate-100 shadow-sm space-y-4 relative overflow-hidden"
+            className="bg-white p-4 rounded-3xl border border-slate-100 shadow-sm space-y-4 relative overflow-hidden"
           >
             <div className="flex justify-between items-start gap-4">
               <div className="flex-1 min-w-0">
@@ -1104,16 +1104,16 @@ export default function App() {
               </div>
             </div>
             
-            <div className="grid grid-cols-3 gap-2 py-3 border-y border-slate-50">
-              <div className="min-w-0">
+            <div className="flex py-3 border-y border-slate-50">
+              <div className="flex-1 min-w-0 border-r border-slate-100 pr-2">
                 <p className="text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-1 truncate">Biaya Awal</p>
                 <p className="text-xs font-bold text-slate-700 truncate" title={`Rp ${record.biayaAwal.toLocaleString('id-ID')}`}>Rp {record.biayaAwal.toLocaleString('id-ID')}</p>
               </div>
-              <div className="min-w-0">
+              <div className="flex-1 min-w-0 text-center border-r border-slate-100 px-2">
                 <p className="text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-1 truncate">Biaya Proses</p>
                 <p className="text-xs font-bold text-rose-600 truncate" title={`Rp ${record.biayaProses.toLocaleString('id-ID')}`}>Rp {record.biayaProses.toLocaleString('id-ID')}</p>
               </div>
-              <div className="min-w-0">
+              <div className="flex-1 min-w-0 text-right pl-2">
                 <p className="text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-1 truncate">Sisa Jasa</p>
                 <p className="text-xs font-bold text-emerald-600 truncate" title={`Rp ${record.sisaJasa.toLocaleString('id-ID')}`}>Rp {record.sisaJasa.toLocaleString('id-ID')}</p>
               </div>
