@@ -1195,12 +1195,12 @@ export default function App() {
                         animate={{ opacity: 1, x: 0 }}
                         className="bg-white p-4 rounded-2xl border border-slate-100 flex items-center justify-between group"
                       >
-                        <div className="flex items-center gap-3">
-                          <div className="w-10 h-10 bg-rose-50 rounded-xl flex items-center justify-center text-rose-500">
+                        <div className="flex items-center gap-3 flex-1 min-w-0">
+                          <div className="w-10 h-10 bg-rose-50 rounded-xl flex items-center justify-center text-rose-500 shrink-0">
                             <Wallet size={20} />
                           </div>
-                          <div>
-                            <h4 className="font-bold text-slate-800 text-sm">{record.name}</h4>
+                          <div className="flex-1 min-w-0">
+                            <h4 className="font-bold text-slate-800 text-sm break-words">{record.name}</h4>
                             <p className="text-rose-600 font-bold text-xs">Rp {record.amount.toLocaleString('id-ID')}</p>
                           </div>
                         </div>
